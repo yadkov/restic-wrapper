@@ -183,9 +183,10 @@ resticOperations() {
 	echo $(date +"%F %T")" Cleaning old snapshots"
 	# TODO make it as a variable
 	"${HOME}/.local/bin/restic" forget \
+		--keep-daily 8 \
 		--keep-daily 7 \
 		--keep-weekly 5 \
-		--keep-monthly 12 \
+		--keep-monthly 6 \
 		--prune
 
 	echo $(date +"%F %T")" Checking restic repo integrity"
